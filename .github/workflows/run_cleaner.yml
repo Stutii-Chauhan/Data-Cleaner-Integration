@@ -22,7 +22,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Write Google Drive credentials to file
-        run: echo "${{ secrets.GDRIVE_CREDENTIALS }}" > credentials.json
+        run: echo "${{ secrets.GDRIVE_CREDENTIALS }}" > service_account.json
 
       - name: Run your cleaning script
         run: python autocleanagent.py
