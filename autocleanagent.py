@@ -46,12 +46,12 @@ print(f"\nCleaning complete. {len(xlsx_files)} file(s) processed and saved to /M
 from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 
-# Assume credentials.json already exists (created by GitHub Actions .yml)
+# Authenticate using service account credentials
 creds_path = "service_account.json"
 
 gauth = GoogleAuth()
-gauth.LoadServiceConfigFile(creds_path)
-gauth.ServiceAuth()
+gauth.LoadCredentialsFile(creds_path)
+gauth.Authorize()
 drive = GoogleDrive(gauth)
 
 # Define your target folder ID
