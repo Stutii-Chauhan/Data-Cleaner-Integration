@@ -6,7 +6,7 @@ os.system('pip install gdown')
 os.system('gdown --folder https://drive.google.com/drive/folders/1EIdJLLAmky1pMirvscMaKnzN5k8WrkGZ?usp=drive_link')
 
 # STEP 2: Locate downloaded folder
-downloaded_folder = "1EIdJLLAmky1pMirvscMaKnzN5k8WrkGZ"
+downloaded_folder = "Mouthshut"
 if not os.path.exists(downloaded_folder):
     raise Exception("Download failed or folder not found.")
 
