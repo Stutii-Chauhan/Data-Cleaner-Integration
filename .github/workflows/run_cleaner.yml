@@ -2,8 +2,8 @@ name: Run Cleaner Every 5 Minutes
 
 on:
   schedule:
-    - cron: "*/5 * * * *"  # Run every 5 minutes
-  workflow_dispatch:      # Allow manual run
+    - cron: "*/5 * * * *"    # Runs every 5 minutes
+  workflow_dispatch:         # Allow manual trigger
 
 jobs:
   run:
@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: cleaned-files
-          path: Mouthshut/output/*.xlsx
+          path: Mouthshut/output/
