@@ -1,35 +1,35 @@
-name: Run Cleaner Every 5 Minutes
+# name: Run Cleaner Every 5 Minutes
 
-on:
-  schedule:
-    - cron: "*/5 * * * *"  # Every 5 minutes
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: "*/5 * * * *"  # Every 5 minutes
+#   workflow_dispatch:
 
-jobs:
-  run:
-    runs-on: ubuntu-latest
+# jobs:
+#   run:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false  # We'll use GITHUB_TOKEN manually
+#     steps:
+#       - name: Checkout repo
+#         uses: actions/checkout@v3
+#         with:
+#           persist-credentials: false  # We'll use GITHUB_TOKEN manually
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.10'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+#       - name: Install dependencies
+#         run: pip install -r requirements.txt
 
-      - name: Run your cleaning script
-        run: python autocleanagent.py
+#       - name: Run your cleaning script
+#         run: python autocleanagent.py
 
-      - name: Commit and push cleaned files
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Mouthshut/output/*.xlsx || echo "No files to add"
-          git commit -m "Auto-update cleaned files [skip ci]" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
+#       - name: Commit and push cleaned files
+#         run: |
+#           git config --global user.name "github-actions[bot]"
+#           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+#           git add Mouthshut/output/*.xlsx || echo "No files to add"
+#           git commit -m "Auto-update cleaned files [skip ci]" || echo "No changes to commit"
+#           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
